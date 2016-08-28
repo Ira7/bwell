@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('bwell', ['common', 'shell', 'home', 'help', 'auth', 'nav', 'sidenav', 'request']);
+    angular.module('bwell', ['common', 'shell', 'home', 'help', 'auth', 'nav', 'sidenav']);
 
     // CONFIG: App (module)
     angular
