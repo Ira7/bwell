@@ -34,7 +34,7 @@
 
     /* ANGULAR */
     angular
-        .module('request')
+        .module('bwell')
         .directive('request', Request );
 
 })();
