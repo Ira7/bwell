@@ -28,29 +28,42 @@
 
         }
 
+        // function _login(loginData) {
+        //     var deferred = $q.defer();
+
+        //     var data = "grant_type=password&username=" + loginData.userName + "&password=" + loginData.password;
+        //     dataService.post('/token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
+        //       .then(function successCallback(response) {
+
+        //           if(response.status !== 200){
+        //               deferred.reject(response);
+        //               return;
+        //           }
+
+        //         localStorageService.set('authorizationData', { token: response.data.access_token, userName: loginData.userName });
+        //         _authentication.isAuth = true;
+        //         _authentication.userName = loginData.userName;
+
+        //       }, function errorCallback(response) {
+
+        //         console.error(response);
+        //         _logOut();
+        //         deferred.reject(response);
+
+        //       });
+
+        //     return deferred.promise;
+
+        // }
+
         function _login(loginData) {
             var deferred = $q.defer();
+            deferred.resolve(true);
 
             var data = "grant_type=password&username=" + loginData.userName + "&password=" + loginData.password;
-            dataService.post('/token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
-              .then(function successCallback(response) {
-                  
-                  if(response.status !== 200){
-                      deferred.reject(response);
-                      return;
-                  }
-                  
-                localStorageService.set('authorizationData', { token: response.data.access_token, userName: loginData.userName });
-                _authentication.isAuth = true;
-                _authentication.userName = loginData.userName;
-
-              }, function errorCallback(response) {
-
-                console.error(response);
-                _logOut();
-                deferred.reject(response);
-
-              });
+            localStorageService.set('authorizationData', { token: 'abcd', userName: loginData.userName });
+            _authentication.isAuth = true;
+            _authentication.userName = loginData.userName;
 
             return deferred.promise;
 
@@ -82,6 +95,6 @@
     /* ANGULAR */
     angular
         .module('auth')
-        .factory('authService', AuthService );
+        .factory('authService', AuthService);
 
 })();

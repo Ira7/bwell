@@ -22,7 +22,7 @@
                     rememberMe: false
                 }
             };
-            
+
             vm.signinForm = null;
 
             function _clearErrors() {
@@ -41,17 +41,21 @@
                 authService.login(vm.model.signin)
                     .then(function (response) {
                         // change state only if login successful
-                        if(response && response.status === 200){
+                        // if(response && response.status === 200){
+                        //     $state.go('shell.home.dashboard');    
+                        // }
+
+                        if(response && response === true){
                             $state.go('shell.home.dashboard');    
                         }
-                     },
-                     function (response) {
-                         if (response && response.data && response.data.error_description) {
-                             PubSub.publish('message-show', { 'msg': response.data.error_description });
-                         } else {
-                             PubSub.publish('message-show', { 'msg': 'אין תקשורת - נא בדקו חיבור לרשת' });
-                         }
-                     });
+                    },
+                    function (response) {
+                        if (response && response.data && response.data.error_description) {
+                            PubSub.publish('message-show', { 'msg': response.data.error_description });
+                        } else {
+                            PubSub.publish('message-show', { 'msg': 'אין תקשורת - נא בדקו חיבור לרשת' });
+                        }
+                    });
 
             }
 
