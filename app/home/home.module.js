@@ -17,7 +17,7 @@
                         template: '<sidenav></sidenav>'
                     },
                     'shellContentView@shell': {
-                        template: '<dashboard></dashboard>',
+                        template: '<div></div>',
                        
                     }
                 }
@@ -25,7 +25,7 @@
                 .state('shell.home.dashboard', {
                     url: '/dashboard',
                     views: {
-                        'shellContentView@shell.home.dashboard': {
+                        'shellContentView@shell': {
                             template: '<dashboard></dashboard>'
                         }
                     }
