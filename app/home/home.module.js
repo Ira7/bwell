@@ -13,9 +13,9 @@
                     'shellNavView@shell': {
                         template: '<nav-private></nav-private>'
                     },
-                    'shellSideView@shell': {
-                        template: '<sidenav></sidenav>'
-                    },
+                    // 'shellSideView@shell': {
+                    //     template: '<sidenav></sidenav>'
+                    // },
                     'shellContentView@shell': {
                         template: '<div></div>',
                        
@@ -27,6 +27,14 @@
                     views: {
                         'shellContentView@shell': {
                             template: '<dashboard></dashboard>'
+                        }
+                    }
+                })
+                 .state('shell.home.request', {
+                    url: '/request',
+                    views: {
+                        'shellContentView@shell': {
+                            template: '<request></request>'
                         }
                     }
                 });
