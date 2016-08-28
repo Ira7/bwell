@@ -8,21 +8,28 @@
         .config(function ($stateProvider) {
 
             $stateProvider.state('shell.home', {
-                url: '/home',
+                url: '^/home',
                 views: {
-                    'shellNavView': {
+                    'shellNavView@shell': {
                         template: '<nav-private></nav-private>'
                     },
-                    'shellSideView': {
+                    'shellSideView@shell': {
                         template: '<sidenav></sidenav>'
                     },
-                    'shellContentView': {
-                      templateUrl: 'home/templates/home-template.html',
-                      controller: 'homeController',
-                      controllerAs: 'vm'
+                    'shellContentView@shell': {
+                        template: '<dashboard></dashboard>',
+                       
                     }
                 }
-            });
+            })
+                .state('shell.home.dashboard', {
+                    url: '/dashboard',
+                    views: {
+                        'shellContentView@shell.home.dashboard': {
+                            template: '<dashboard></dashboard>'
+                        }
+                    }
+                });
 
 
             /* Add New States Above */
