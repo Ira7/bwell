@@ -2,3 +2,26 @@
 .b-navbar{
     position: relative;
 }
+
+.b-tooth{
+    display:inline-block;
+  width: 30px;
+  height: 40px;
+  margin: 5px; 
+  text-align: center;
+  padding:3px;
+  background-image: url('../images/tooth.png');
+  background-size: cover;
+}
+
+.b-tooth-selected{
+  display:inline-block;
+  width: 30px;
+  height: 40px;
+  margin: 5px; 
+   text-align: center;
+   padding:3px;
+  background-image: url('../images/tooth.png');
+  background-size: cover;
+  background-color: cornflowerblue;
+}
