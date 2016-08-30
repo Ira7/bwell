@@ -1,5 +1,30 @@
 <div class="container">
   <div class="row">
+    <p>ערך לסינון</p>
+      <div class="row">
+                    <div class="col-xs-3">
+                        <div class="filter-select-date">
+                            <span class="sub_head_titel">בקשות מתאריך</span>
+                            <span class="input-group">
+                    <input type="text" class="form-control date-picker-design"     
+                    datepicker-popup="dd/MM/yyyy"
+                    datepicker-mode="month"
+                    ng-model="vm.tempFields.dateBikur"
+                  
+                    is-open="vm.isFromDateOpen" ng-click="vm.toggleOpenDate($event)" 
+                    close-text="סגור" clear-text="נקה" current-text="היום">
+                    </input>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default date-calendar-design"
+                         ng-click="vm.toggleFromDate($event,$scope)"><i class="fa fa-calendar"></i></button>
+                    </span>
+                            </span>
+                            <!--<shimur-date-picker ng-model="vm.data.dateBikur"></shimur-date-picker>-->
+                        </div>
+                    </div>
+                </div>
+    </div>
+  <div class="row">
       <div class="col-xs-3">
           תאריך בקשה
           </div>
@@ -15,6 +40,6 @@
   </div>
 
   <div class="row">
-      <button ui-sref="shell.home.request">פניה חדשה</button>
+      <button class="btn btn-lg btn-primary" ui-sref="shell.home.request">פניה חדשה</button>
   </div>
 </div>
