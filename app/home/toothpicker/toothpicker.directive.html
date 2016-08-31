@@ -10,9 +10,9 @@
         </div>
         </div>
   <div class="row">
-     <div class="b-tooth" ng-repeat="tooth in vm.model.adultTeeth.teethDown" ng-class="{'b-tooth-selected':tooth.selectedTooth==true}" ng-click=" vm.selectTeeth(tooth)">{{tooth.name}}</div>
+     <div class="b-tooth" ng-repeat="tooth in vm.model.adultTeeth.teethDown" ng-class="{'b-tooth-selected':tooth.selectedTooth==true}" ng-click="vm.selectTeeth(tooth)">{{tooth.name}}</div>
       </div>
       <div class="row">
-         
+         {{vm.data}}
           </div>
 </div>

@@ -6,7 +6,7 @@
     /**
      * LocalDataService Object/function
      */
-    function LocalDataService(dataService, $log) {
+    function LocalDataService(dataService, $log, $q) {
 
         /***************** PRIVATE *******************/
 
@@ -19,32 +19,38 @@
          * init() - Private function
          */
         function _init() {
-            // add logic here...
+            var deferred = $q.defer();
+            //mock data
+            var mockData = {
+                user: 'medical_clinic',
+                patients: [
+                    { name: 'a' },
+                    { name: 'b' }
+                ]
+            };
             dataService.get('url', { data: '' })
                 .then(function (res) {
-                    _model.data = res;
+                    //_model.data = res;
+                    _model.data = mockData;
+                    deferred.resolve(_model.data);
                 },
                 function failure(err) {
-                    _model.data = {
-                        user: 'medical_clinic',
-                        patients: [
-                            {name: 'a'},
-                            {name: 'b'}
-                        ]
-                    };
+                    _model.data = mockData;
                     $log.error(err);
+                    deferred.reject(_model.data);
                 });
+                return deferred.promise;
         }
 
         _init();
 
         /****************** PUBLIC *******************/
         var service = {
-            doSomething: _doSomething,
-            get data() {
+            init: _init,
+            getData() {
                 return _model.data;
             },
-            set data(val) {
+            setData(val) {
                 _model.data = val;
             }
         };
